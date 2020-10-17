@@ -1,0 +1,6 @@
+table_create --name EkiPos --flags TABLE_HASH_KEY --key_type ShortText
+column_create --table EkiPos --name value --type Text
+column_create --table EkiPos --name location --flags COLUMN_SCALAR --type WGS84GeoPoint
+
+table_create --name R_EkiPos --flags TABLE_PAT_KEY --key_type WGS84GeoPoint
+column_create --table R_EkiPos --name index --flags COLUMN_INDEX --type EkiPos --source location
